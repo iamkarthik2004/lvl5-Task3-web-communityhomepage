@@ -1,0 +1,420 @@
+/* General setup */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+  
+body {
+    margin: 0 auto;
+    min-width: 1000px;
+    max-width: 1400px;
+    background: linear-gradient(135deg, #5b44cf 0%, #b024c2 100%);
+    color: #333;
+    font-smooth: always;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Layout */
+  
+section {
+    float: left;
+    width: 50%;
+}
+  
+aside {
+    float: left;
+    width: 30%;
+}
+  
+nav {
+    float: left;
+    width: 20%;
+}
+  
+footer {
+    clear: both;
+}
+  
+header, section, aside, nav, footer {
+    padding: 20px;
+}
+  
+/* header and footer */
+header {
+    border-top: 5px solid rgb(10, 47, 111);
+    border-bottom: none;
+    background: linear-gradient(to right, rgb(16, 40, 40), rgb(22, 72, 129));
+    box-shadow: 0 4px 20px rgba(203, 9, 9, 0.1);
+    margin-bottom: 30px;
+    position: relative;
+    overflow: hidden;
+}
+
+header::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 10px;
+    background: repeating-linear-gradient(
+        -45deg,
+        transparent,
+        transparent 5px,
+        rgba(255, 255, 255, 0.1) 5px,
+        rgba(255, 255, 255, 0.1) 10px
+    );
+}
+
+footer {
+    border-top: none;
+    border-bottom: 5px solid rgb(25, 24, 68);
+    background: linear-gradient(to right, rgb(16, 40, 40), rgb(22, 72, 129));
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
+    margin-top: 30px;
+    position: relative;
+}
+
+footer::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 10px;
+    background: repeating-linear-gradient(
+        -45deg,
+        transparent,
+        transparent 5px,
+        rgba(255, 255, 255, 0.1) 5px,
+        rgba(255, 255, 255, 0.1) 10px
+    );
+}
+
+/* Typography */
+html {
+    font-size: 10px;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.6rem;
+    line-height: 1.7;
+    letter-spacing: 0.3px;
+    word-spacing: 2px;
+}
+
+h1, h2 {
+    font-family: 'Sansita', sans-serif;
+    letter-spacing: 2px;
+    color: rgb(218, 237, 13);
+    position: relative;
+    margin-top: 0;
+}
+
+h1 {
+    font-size: 4.2rem;
+    text-align: center;
+    padding: 20px 0;
+    text-shadow: 2px 2px 4px rgb(165, 57, 11);
+    transition: transform 0.3s ease;
+}
+
+h1:hover {
+    transform: scale(1.02);
+}
+
+h2 {
+    font-size: 3rem;
+    border-bottom: 2px solid #dddddd;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    color: rgb(255, 0, 230);
+    text-shadow: 1px 1px 2px rgb(30, 189, 41);
+    position: relative;
+}
+
+h2::after {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 50px;
+    height: 2px;
+    background-color: rgb(225, 201, 20);
+    transition: width 0.3s ease;
+}
+
+h2:hover::after {
+    width: 100%;
+}
+
+section h2 + p {
+    text-indent: 20px;
+    font-style: italic;
+    color: #555;
+    font-size: 1.7rem;
+    line-height: 1.8;
+}
+
+p {
+    text-align: justify;
+    margin-bottom: 20px;
+    animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Link styling */
+a {
+    color: rgb(102, 169, 170);
+    text-decoration: none;
+    position: relative;
+    padding: 0 2px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    bottom: 0;
+    left: 0;
+    background-color: rgb(37, 222, 207);
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transform 0.3s ease;
+}
+
+a:hover {
+    color: rgb(136, 195, 204);
+}
+
+a:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+a:visited {
+    color: rgb(85, 112, 119);
+}
+
+a:active {
+    color: rgb(153, 221, 213);
+    top: 1px;
+}
+
+a:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(178, 36, 36, 0.4);
+    border-radius: 2px;
+}
+
+/* List styling */
+ul, ol {
+    margin: 1.6rem 0;
+    list-style-position: outside;
+    padding-left: 2.5rem;
+}
+
+ul {
+    list-style-type: none;
+}
+
+ul li {
+    position: relative;
+    padding-left: 15px;
+}
+
+ul li::before {
+    content: "▹";
+    color: rgb(35, 225, 225);
+    position: absolute;
+    left: -5px;
+    transition: transform 0.2s ease;
+}
+
+ul li:hover::before {
+    transform: scale(1.2);
+}
+
+ol {
+    list-style-type: none;
+    counter-reset: item;
+}
+
+ol li {
+    counter-increment: item;
+    position: relative;
+    padding-left: 15px;
+}
+
+ol li::before {
+    content: counter(item, lower-roman) ".";
+    color: rgb(18, 211, 237);
+    position: absolute;
+    left: -15px;
+    font-weight: bold;
+    transition: transform 0.2s ease;
+}
+
+ol li:hover::before {
+    transform: translateX(3px);
+}
+
+li {
+    margin-bottom: 12px;
+    padding-left: 5px;
+    transition: transform 0.2s ease;
+}
+
+li:hover {
+    transform: translateX(3px);
+}
+
+/* Navigation styling */
+nav {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 5px;
+    box-shadow: 0 4px 15px rgb(204, 250, 0); /*navigation box background colors*/
+    margin: 10px;
+    padding: 20px;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav li {
+    padding: 0;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #eee;
+    transition: all 0.3s ease;
+}
+
+nav li:last-child {
+    border-bottom: none;
+}
+
+nav li:hover {
+    transform: translateX(5px);
+    background: rgba(203, 25, 25, 0.05);
+}
+
+nav a {
+    display: block;
+    padding: 10px 15px;
+    border-radius: 3px;
+    font-weight: bold;
+    color: #333;
+    transition: all 0.3s ease;
+}
+
+nav a::after {
+    display: none;
+}
+
+nav a:hover {
+    color: rgb(1, 169, 230);
+    background: rgba(102, 170, 115, 0.05);
+}
+
+/* Section and aside styling */
+section, aside {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    margin: 15px;
+    padding: 30px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+}
+
+section:hover, aside:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+}
+
+section::before, aside::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(to right, rgb(21, 226, 199), rgb(28, 209, 226));
+}
+
+aside {
+    position: relative;
+}
+
+aside h2 {
+    margin-top: 0;
+}
+
+aside ul {
+    margin: 0;
+    padding-left: 10px;
+}
+
+aside li {
+    margin-bottom: 8px;
+    transition: all 0.2s ease;
+}
+
+aside li:hover {
+    transform: translateX(3px);
+}
+
+aside p {
+    margin-top: 20px;
+    text-align: right;
+}
+
+/* Footer styling */
+footer {
+    padding: 25px;
+}
+
+footer p {
+    margin: 0;
+    text-align: center;
+    color: white;
+    font-size: 1.4rem;
+    text-shadow: 1px 1px 2px rgba(83, 27, 27, 0.2);
+}
+
+/* Font imports - updated for better implementation */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Sansita:wght@700&display=swap');
+
+/* Additional enhancements */
+::selection {
+    background: rgba(170, 102, 102, 0.3);
+    color: #88cb0b;
+}
+
+/* Responsive adjustments for layout */
+@media (min-width: 1200px) {
+    header, section, aside, nav, footer {
+        padding: 30px;
+    }
+    
+    h1 {
+        font-size: 5rem;
+    }
+    
+    section, aside {
+        margin: 20px;
+    }
+}
